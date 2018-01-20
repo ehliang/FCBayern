@@ -10,12 +10,10 @@ body {
   position:absolute;
   width:160px;
   min-height:40px;
-  background-color:#100dc5;
+  background-color:transparent;
   z-index:300000;
   bottom:50px;
   left:10px;
   text-align:center;
 }
 
-.image-gallery-right-nav {
-  right: 50; }

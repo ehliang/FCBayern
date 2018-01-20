@@ -23,6 +23,7 @@ class App extends Component {
     this.state = {
       source: sources['bunnyMovie'],
       showThumbnails: false,
+      showNav: true,
       showPlayButton: false,
       showGalleryPlayButton: false,
       showFullscreenButton: false,
@@ -43,13 +44,27 @@ class App extends Component {
     });
   }
 
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+  _onImageClick(event) {
+    console.debug('clicked on image', event.target, 'at index', this._imageGallery.getCurrentIndex());
+  }
+
+/* 
+  onClick= {event => {
+    this.slideToIndex.call(this, index, event);
+    if (this.props.onThumbnailClick) {
+      this.props.onThumbnailClick(event, index);
+    }
+  }} */
 
   render() {
     const images = [
       {
         id: 1,
-        original: './images/fcbayern.svg',
-        thumbnail: './images/fcbayern.svg',
+        original: './images/FC_Bayern_Munich.png',
+        thumbnail: './images/FC_Bayern_Munich.png',
       },
       {
         id: 2,
@@ -88,13 +103,17 @@ class App extends Component {
                 <div className="col-6 d-flex align-items-center">
                   <div id="video_box">
                     <div id="video_overlays"> 
-                      <ImageGallery id="overlay_images"
+                      <ImageGallery 
+                            ref={i => this._imageGallery = i}
                             showThumbnails={this.state.showThumbnails} 
                             showPlayButton={this.state.showPlayButton}
                             showGalleryPlayButton={this.state.showGalleryPlayButton}
                             showFullscreenButton={this.state.showFullscreenButton}
                             showBullets={this.state.showBullets}
-                            items={images} />
+                            showNav={this.state.showNav}
+                            items={images} 
+                            onClick={this._onImageClick.bind(this)}
+                            additionalClass="app-image-gallery"/>
                     </div>
                     <Player
                       ref="player1"
@@ -121,6 +140,13 @@ class App extends Component {
                 </div>
                 
             </div>
+
+            <button onClick={this._onImageClick}>
+              next
+            </button>
+            <button onClick={this.handleClick}>
+              previous
+            </button>
         </div>
       </div>
     );
