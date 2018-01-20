@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import logo from './FCBayern-Logo-3C-W.png';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import "../node_modules/video-react/dist/video-react.css";
 import { Player, ControlBar } from 'video-react';
 import ImageGallery from 'react-image-gallery';
 import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
+import "typeface-roboto";
+
 
 const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -14,28 +16,9 @@ const sources = {
 };
 
 
-
 class App extends Component {
   constructor(props, context) {
     super(props, context);
-
-    /* this.images = [
-      {
-        id: 1,
-        original: './FCBayern-Logo-3C-W.png',
-        thumbnail: './FCBayern-Logo-3C-W.png',
-      },
-      {
-        id: 2,
-        original: './sap-logo-svg.svg',
-        thumbnail: './sap-logo-svg.svg'
-      },
-      {
-        id: 3,
-        original: './logo-svg.svg',
-        thumbnail: './logo.svg'
-      }
-    ] */
 
     this.state = {
       source: sources['bunnyMovie'],
@@ -47,17 +30,16 @@ class App extends Component {
     };
   }
 
-  
-
   componentDidMount() {
     // subscribe state change
-    this.refs.player.subscribeToStateChange(this.handleStateChange.bind(this));
+    this.refs.player1.subscribeToStateChange(this.handleStateChange.bind(this));
+
   }
 
   handleStateChange(state, prevState) {
     // copy player state to this component's state
     this.setState({
-      player: state
+      player1: state,
     });
   }
 
@@ -83,49 +65,63 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
+     {/*    <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to FCBayern Hackdays!</h1>
         </header>
         <p className="App-intro">
           Let's see your reaction in the match!
         </p>
+      */}
+        <div className="container-fluid">
+           {/*  <div className="overlayContainer">
+                <div className="exactCenter">
+                    <div className="bayernLogo">
+                        <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
+                    </div>
+                    <h1 className="display-6">FCBayern: 0 - Werder Bremen: 0</h1>
+                    <h1 className="display-6">21.01.17. Allianz Arena</h1>
+                </div>
+            </div> */}
 
-        <div id="video_box">
-          <div id="video_overlays"> 
-            <ImageGallery id="overlay_images"
-                          showThumbnails={this.state.showThumbnails} 
-                          showPlayButton={this.state.showPlayButton}
-                          showGalleryPlayButton={this.state.showGalleryPlayButton}
-                          showFullscreenButton={this.state.showFullscreenButton}
-                          showBullets={this.state.showBullets}
-                          items={images} />
-          </div>
-          <Player
-            ref="player"
-            autoPlay={true}
-            fluid={false}
-            width={600}
-            height={600}
-          >
-            <source src={this.state.source} />
-            <ControlBar autoHide={true} />
-          </Player>
+            <div className="row fh">
+                <div className="col-6 d-flex align-items-center">
+                  <div id="video_box">
+                    <div id="video_overlays"> 
+                      <ImageGallery id="overlay_images"
+                            showThumbnails={this.state.showThumbnails} 
+                            showPlayButton={this.state.showPlayButton}
+                            showGalleryPlayButton={this.state.showGalleryPlayButton}
+                            showFullscreenButton={this.state.showFullscreenButton}
+                            showBullets={this.state.showBullets}
+                            items={images} />
+                    </div>
+                    <Player
+                      ref="player1"
+                      autoPlay={true}
+                      fluid={false}
+                    >
+                      <source src={this.state.source} />
+                      <ControlBar autoHide={true} />
+                    </Player>
+                  </div>
+                </div>
+
+                <div className="col-6 d-flex align-items-center">  
+                  <div id="video_box">
+                    <Player
+                      ref="player2"
+                      autoPlay={true}
+                      fluid={false}
+                    >
+                      <source src={this.state.source} />
+                      <ControlBar autoHide={true} />
+                    </Player>
+                  </div>    
+                </div>
+                
+            </div>
         </div>
-
-        <div id="video_box">
-          <Player
-            ref="player"
-            autoPlay={true}
-            fluid={false}
-            width={400}
-            height={400}
-          >
-            <source src={this.state.source} />
-            <ControlBar autoHide={true} />
-          </Player>
-        </div>
-
       </div>
     );
   }
