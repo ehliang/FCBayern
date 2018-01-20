@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-image-gallery": "^0.8.7",
     "react-scripts": "1.1.0",
     "redux": "^3.7.2",

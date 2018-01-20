@@ -6,7 +6,8 @@ import { Player, ControlBar } from 'video-react';
 import ImageGallery from 'react-image-gallery';
 import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "typeface-roboto";
-
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+import Helmet from 'react-helmet';
 
 const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -80,6 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Helmet bodyAttributes={{style: 'background-color : #000000'}}/>
      {/*    <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to FCBayern Hackdays!</h1>
@@ -89,15 +91,15 @@ class App extends Component {
         </p>
       */}
         <div className="container-fluid">
-           {/*  <div className="overlayContainer">
+             <div className="overlayContainer">
                 <div className="exactCenter">
                     <div className="bayernLogo">
                         <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
                     </div>
-                    <h1 className="display-6">FCBayern: 0 - Werder Bremen: 0</h1>
-                    <h1 className="display-6">21.01.17. Allianz Arena</h1>
+                    <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
+                    <h4 className="display-6">21.01.17. Allianz Arena</h4>
                 </div>
-            </div> */}
+            </div> 
 
             <div className="row fh">
                 <div className="col-6 d-flex align-items-center">
@@ -138,7 +140,18 @@ class App extends Component {
                     </Player>
                   </div>    
                 </div>
-                
+        </div>
+        <div className="row">
+        <div className="col-12">
+            <footer class="footer">
+                <div class="container text-center">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-flickr"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </div>
+            </footer>
             </div>
 
             <button onClick={this._onImageClick}>
@@ -147,6 +160,7 @@ class App extends Component {
             <button onClick={this.handleClick}>
               previous
             </button>
+        </div>
         </div>
       </div>
     );
