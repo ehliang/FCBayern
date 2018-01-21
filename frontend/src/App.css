@@ -48,7 +48,7 @@
     width:400px;
     height:400px;
     position: fixed;
-    top: 50%;
+    top: 37.5%;
     left: 25%;
     margin-top: -200px;
     margin-left: -200px;
@@ -114,4 +114,11 @@ button:focus {
     margin: 10px;
     border: 10px solid transparent;
     opacity: 0.7;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: black;
+    color: white;
 }
