@@ -251,9 +251,9 @@ class App extends Component {
           </div>
 
           <div className="col-4">
+          <h5 className="display-6">Tag your moments!</h5>
             <form>              
               <label>
-
               <input type="text" value={this.state.value} onChange={this.handleTextChange} placeholder="Label your video!"/>
               </label>
             </form>
@@ -264,16 +264,17 @@ class App extends Component {
           
           <footer className="footer">
                 <div className="container text-center">
-                    <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook"></i></a>
-                    <a href=""><i className="fa fa-twitter"></i></a>
-                    <a href=""><i className="fa fa-instagram"></i></a>
-                    <a href=""><i className="fa fa-flickr"></i></a>
-                    <a href=""><i className="fa fa-google-plus"></i></a>
+                    <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook-square fa-3x"></i></a>
+                    <a href=""><i className="fa fa-twitter-square fa-3x"></i></a>
+                    <a href=""><i className="fa fa-instagram fa-3x"></i></a>
+                    <a href=""><i className="fa fa-flickr fa-3x"></i></a>
+                    <a href=""><i className="fa fa-google-plus-square fa-3x"></i></a>
                 </div>
             </footer>
           </div>
 
           <div className="col-4">
+          <h5 className="display-6">Tag your moments!</h5>
             <form>              
               <label>
                 <input type="text" value={this.state.valueRight} onChange={this.handleTextChangeRight} placeholder="Label your video!"/>
