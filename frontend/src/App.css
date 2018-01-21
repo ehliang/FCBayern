@@ -19,8 +19,8 @@
 }
 
 .col-6, .col-12 {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
     height: 100%;
 }
 
@@ -59,4 +59,22 @@
 /* Add a hover effect if you want */
 .fa:hover {
     opacity: 0.7;
+}
+
+#video_box{
+    position:relative;
+}
+#video_overlays {
+    position:absolute;
+    width:160px;
+    min-height:40px;
+    background-color:transparent;
+    z-index:300000;
+    bottom:50px;
+    left:10px;
+    text-align:center;
+}
+
+#video_player{
+    width: 50%;
 }
