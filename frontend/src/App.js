@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import "../node_modules/video-react/dist/video-react.css";
-import { Player, ControlBar } from 'video-react';
+import { Player, ControlBar, FullscreenToggle } from 'video-react';
 import ImageGallery from 'react-image-gallery';
 import "../node_modules/react-image-gallery/styles/css/image-gallery.css";
 import "typeface-roboto";
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import Helmet from 'react-helmet';
 import ShareButton from './shareButton'
+import NavButton from './navButton'
 
 const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -50,7 +51,7 @@ class Videoplayer extends Component {
     const currentTime = player.currentTime;
     const ended = player.ended;
     if(ended){
-      console.log("currentTime:"+currentTime+", isEnd:"+ended);
+      //console.log("currentTime:"+currentTime+", isEnd:"+ended);
       this.refs.player.load();
     }
   }
@@ -102,12 +103,13 @@ class Videoplayer extends Component {
       <Player
         ref="player"
         autoPlay={true}
-        fluid={false}
+        fluid={true}
         startTime={49}
       >
         <source src={sourcePath} />
         <ControlBar autoHide={true}>
           <ShareButton order={7} />
+          <FullscreenToggle disabled />
         </ControlBar>
       </Player>
     )
@@ -132,9 +134,11 @@ class App extends Component {
   }
 
   handleClick = () => {
+    console.log("click previous");
     console.log('this is:', this);
   }
   _onImageClick(event) {
+    console.log("click");
     console.debug('clicked on image', event.target, 'at index', this._imageGallery.getCurrentIndex());
   }
 
@@ -170,15 +174,7 @@ class App extends Component {
         </p>
       */}
         <div className="container-fluid">
-            <div className="overlayContainer">
-                <div className="exactCenter">
-                    <div className="bayernLogo">
-                        <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
-                    </div>
-                    <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
-                    <h4 className="display-6">21.01.17. Allianz Arena</h4>
-                </div>
-            </div> 
+            
 
             <div className="row fh">
                 <div className="col-6 d-flex align-items-center">
@@ -209,6 +205,15 @@ class App extends Component {
                 </div>
         </div>
         <div className="row">
+        <div className="overlayContainer">
+                <div className="exactCenter">
+                    <div className="bayernLogo">
+                        <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
+                    </div>
+                    <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
+                    <h4 className="display-6">21.01.17. Allianz Arena</h4>
+                </div>
+            </div> 
         <div className="col-12">
             <footer class="footer">
                 <div class="container text-center">
@@ -220,15 +225,13 @@ class App extends Component {
                 </div>
             </footer>
         </div>
+        </div>
+        
+        </div>
 
-            <button onClick={this._onImageClick}>
-              next
-            </button>
-            <button onClick={this.handleClick}>
-              previous
-            </button>
-        </div>
-        </div>
+        {/* <NavButton text="Next"></NavButton>
+        <NavButton text="Previous"></NavButton> */}
+
       </div>
     );
   }
