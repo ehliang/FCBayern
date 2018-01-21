@@ -108,7 +108,6 @@ class Videoplayer extends Component {
       >
         <source src={sourcePath} />
         <ControlBar autoHide={true}>
-          <ShareButton order={7} />
           <FullscreenToggle disabled />
         </ControlBar>
       </Player>
@@ -125,7 +124,7 @@ class App extends Component {
 
     this.state = {
       showThumbnails: false,
-      showNav: true,
+      showNav: false,
       showPlayButton: false,
       showGalleryPlayButton: false,
       showFullscreenButton: false,
@@ -259,9 +258,14 @@ class App extends Component {
                 <input type="text" value={this.state.valueRight} onChange={this.handleTextChangeRight} placeholder="Label your video!"/>
               </label>
             </form>
-          </div>
+
+          </div> 
+          
         </div>
 
+        <div className="col-12">
+          <ShareButton /> 
+        </div>
         
         <div className="col-12">
             <footer className="footer">

@@ -18,30 +18,44 @@ export default class DownloadButton extends Component {
   }
 
   render() {
-    const { player, className } = this.props;
-    const { currentSrc } = player;
+    //const { player, className } = this.props;
+    //const { currentSrc } = player;
+    
 
     return (
-      <a
-        ref={
-          (c) => {
-            this.button = c;
-          }
-        }
-        className={classNames(className, {
-          'video-react-control': true,
-          'video-react-button': true,
-        })}
-        href={currentSrc}
-        download
-        style={{
-          backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==)',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center'
-        }}
-        tabIndex="0"
-        onClick={this.handleClick}
-      />
+      <div class="media">
+        <img class="align-self-top mr-3" src="./images/share.svg" 
+            alt="triangle with all three sides equal"
+            height="40px"
+            width="40px"
+        />
+        <div class="media-body">
+          <p class="text-left">Share you FCBayern Moment</p>
+          <p class="text-left">with the whole world</p>
+        </div>
+        
+      </div>
+      //<a
+      //  ref={
+      //    (c) => {
+      //      this.button = c;
+      //    }
+      //  }
+        //className={classNames(className, {
+        //  'video-react-control': true,
+        //  'video-react-button': true,
+        //})} 
+        //href={currentSrc}
+        //download
+      //  style={{
+          //backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==)',
+      //    backgroundImage: 'url(./images/share.svg)',
+      //    backgroundRepeat: 'no-repeat',
+      //    backgroundPosition: 'center'
+      //  }}
+      //  tabIndex="0"
+      //  onClick={this.handleClick}
+      ///>
     );
   }
 }
