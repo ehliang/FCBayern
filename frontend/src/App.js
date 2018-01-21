@@ -131,12 +131,17 @@ class App extends Component {
       showFullscreenButton: false,
       showBullets: true,
       value : '',
+      valueRight: '',
     };
     
   }
 
   handleTextChange = (e) =>{ 
     this.setState({value: e.target.value});
+  }
+
+  handleTextChangeRight = (e) =>{ 
+    this.setState({valueRight: e.target.value});
   }
 
   handleClick = () => {
@@ -227,17 +232,31 @@ class App extends Component {
                   <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
                   <h4 className="display-6">21.01.17. Allianz Arena</h4>
                 </div>
-              <div className="rightSide">
+                <div className="leftSide">
                 <div className="bayernLogo">
                   <h1>{this.state.value}</h1>
                 </div>
               </div>
+              <div className="rightSide">
+                <div className="bayernLogo">
+                  <h1>{this.state.valueRight}</h1>
+                </div>
+              </div>
           </div>
 
-          <div className="col-12">
+          <div className="col-6">
             <form>              
               <label>
-                <input type="text" value={this.state.value} onChange={this.handleTextChange} />
+
+              <input type="text" value={this.state.value} onChange={this.handleTextChange} placeholder="Label your video!"/>
+              </label>
+            </form>
+          </div>
+
+          <div className="col-6">
+            <form>              
+              <label>
+                <input type="text" value={this.state.valueRight} onChange={this.handleTextChangeRight} placeholder="Label your video!"/>
               </label>
             </form>
           </div>
