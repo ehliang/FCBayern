@@ -96,10 +96,22 @@
     min-height:40px;
     background-color:transparent;
     z-index:300000;
-    bottom:50px;
+    bottom:40px;
     left:0px;
     text-align:center;
 }
+
+#video_overlays2 {
+    position:absolute;
+    width:20%;
+    min-height:40px;
+    background-color:transparent;
+    z-index:300000;
+    bottom:40px;
+    right:0px;
+    text-align:center;
+}
+
 #video_player {
     position:absolute;
     left: 0px;

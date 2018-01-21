@@ -222,8 +222,22 @@ class App extends Component {
 
           <div className="col-6 d-flex align-items-center">  
             <div id="video_box">
+              
               <Videoplayer id="video_player2"
                 path="http://media.w3.org/2010/05/bunny/movie.mp4" />
+                <div id="video_overlays2"> 
+                <ImageGallery 
+                      ref={i => this._imageGallery = i}
+                      showThumbnails={this.state.showThumbnails} 
+                      showPlayButton={this.state.showPlayButton}
+                      showGalleryPlayButton={this.state.showGalleryPlayButton}
+                      showFullscreenButton={this.state.showFullscreenButton}
+                      showBullets={this.state.showBullets}
+                      showNav={this.state.showNav}
+                      items={images} 
+                      onClick={this._onImageClick.bind(this)}
+                      additionalClass="app-image-gallery"/>
+                </div>
             </div>    
           </div>
           </div>
@@ -235,7 +249,7 @@ class App extends Component {
                   <div className="bayernLogo">
                         <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
                   </div>
-                  <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
+                  <h4 className="display-6">FCBayern: 4 - Werder Bremen: 2</h4>
                   <h4 className="display-6">21.01.17. Allianz Arena</h4>
                 </div>
                 <div className="leftSide">
