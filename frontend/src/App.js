@@ -243,7 +243,7 @@ class App extends Component {
               </div>
           </div>
 
-          <div className="col-6">
+          <div className="col-4">
             <form>              
               <label>
 
@@ -252,7 +252,20 @@ class App extends Component {
             </form>
           </div>
 
-          <div className="col-6">
+          <div className="col-4">
+          <h4>Share your FCBayern moment!</h4>
+          <footer className="footer">
+                <div className="container text-center">
+                    <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook"></i></a>
+                    <a href=""><i className="fa fa-twitter"></i></a>
+                    <a href=""><i className="fa fa-instagram"></i></a>
+                    <a href=""><i className="fa fa-flickr"></i></a>
+                    <a href=""><i className="fa fa-google-plus"></i></a>
+                </div>
+            </footer>
+          </div>
+
+          <div className="col-4">
             <form>              
               <label>
                 <input type="text" value={this.state.valueRight} onChange={this.handleTextChangeRight} placeholder="Label your video!"/>
@@ -268,15 +281,7 @@ class App extends Component {
         </div>
         
         <div className="col-12">
-            <footer className="footer">
-                <div className="container text-center">
-                    <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook"></i></a>
-                    <a href=""><i className="fa fa-twitter"></i></a>
-                    <a href=""><i className="fa fa-instagram"></i></a>
-                    <a href=""><i className="fa fa-flickr"></i></a>
-                    <a href=""><i className="fa fa-google-plus"></i></a>
-                </div>
-            </footer>
+            
         </div>
         </div>
         </div>
