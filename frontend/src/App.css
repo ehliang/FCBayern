@@ -122,3 +122,13 @@ input[type=text] {
     background-color: black;
     color: white;
 }
+
+a .fa-twitter-square { color: #00aced; }
+a .fa-facebook-square { color: #3b5998; }
+a .fa-youtube-square { color: #bb0000; }
+a .fa-google-plus-square { color: #dd4b39; }
+a .fa-linkedin-square { color: #007bb6; }
+a .fa-instagram { color: #517fa4; }
+a .fa-flickr { color: #ff0084; }
+
+i {margin: 10px;}
