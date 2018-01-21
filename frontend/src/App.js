@@ -102,7 +102,7 @@ class Videoplayer extends Component {
       <Player
         ref="player"
         autoPlay={true}
-        fluid={false}
+        fluid={true}
         startTime={49}
       >
         <source src={sourcePath} />
@@ -128,7 +128,13 @@ class App extends Component {
       showGalleryPlayButton: false,
       showFullscreenButton: false,
       showBullets: true,
+      value : '',
     };
+    
+  }
+
+  handleTextChange = (e) =>{ 
+    this.setState({value: e.target.value});
   }
 
   handleClick = () => {
@@ -136,6 +142,10 @@ class App extends Component {
   }
   _onImageClick(event) {
     console.debug('clicked on image', event.target, 'at index', this._imageGallery.getCurrentIndex());
+  }
+
+  activateLasers() {
+    document.getElementById('leftSideImg').src="./images/sap-logo-svg.svg";
   }
 
   render() {
@@ -157,7 +167,10 @@ class App extends Component {
       }
     ]
 
-  
+    var FontAwesome = require('react-fontawesome');
+
+    let textPath = `xlink:href="#curve"`;
+
     return (
       <div className="App">
         <Helmet bodyAttributes={{style: 'background-color : #000000'}}/>
@@ -170,7 +183,28 @@ class App extends Component {
         </p>
       */}
         <div className="container-fluid">
-            <div className="overlayContainer">
+            <div className="test">
+
+
+            <div className="row fh">
+                <div className="col-6 d-flex align-items-center">
+                  
+                    
+                    <Videoplayer id="video_player"
+                      path="http://media.w3.org/2010/05/sintel/trailer.mp4" />
+                  
+                </div>
+
+                <div className="col-6 d-flex align-items-center">  
+                  
+                    <Videoplayer id="video_player"
+                      path="http://media.w3.org/2010/05/bunny/movie.mp4" />
+                     
+                </div>
+        </div>
+        <div className="row">
+
+        <div className="overlayContainer">
                 <div className="exactCenter">
                     <div className="bayernLogo">
                         <img src={require('./FCBayern-Logo-3C-W.png')} alt="FCBayern"/>
@@ -178,55 +212,35 @@ class App extends Component {
                     <h4 className="display-6">FCBayern: 0 - Werder Bremen: 0</h4>
                     <h4 className="display-6">21.01.17. Allianz Arena</h4>
                 </div>
-            </div> 
-
-            <div className="row fh">
-                <div className="col-6 d-flex align-items-center">
-                  <div id="video_box">
-                    <div id="video_overlays"> 
-                      <ImageGallery 
-                            ref={i => this._imageGallery = i}
-                            showThumbnails={this.state.showThumbnails} 
-                            showPlayButton={this.state.showPlayButton}
-                            showGalleryPlayButton={this.state.showGalleryPlayButton}
-                            showFullscreenButton={this.state.showFullscreenButton}
-                            showBullets={this.state.showBullets}
-                            showNav={this.state.showNav}
-                            items={images} 
-                            onClick={this._onImageClick.bind(this)}
-                            additionalClass="app-image-gallery"/>
+                <div className="rightSide">
+                    <div className="bayernLogo">
+                    <h1>{this.state.value}</h1>
                     </div>
-                    <Videoplayer id="video_player"
-                      path="http://media.w3.org/2010/05/sintel/trailer.mp4" />
-                  </div>
                 </div>
+            </div>
 
-                <div className="col-6 d-flex align-items-center">  
-                  <div id="video_box">
-                    <Videoplayer id="video_player"
-                      path="http://media.w3.org/2010/05/bunny/movie.mp4" />
-                  </div>    
-                </div>
+            <div className="col-12">
+            <form>
+
+              
+  <label>
+    <input type="text" value={this.state.value} onChange={this.handleTextChange} />
+  </label>
+</form>
         </div>
-        <div className="row">
+        </div>
+
+        </div>
         <div className="col-12">
-            <footer class="footer">
-                <div class="container text-center">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-flickr"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
+            <footer className="footer">
+                <div className="container text-center">
+                    <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook"></i></a>
+                    <a href=""><i className="fa fa-twitter"></i></a>
+                    <a href=""><i className="fa fa-instagram"></i></a>
+                    <a href=""><i className="fa fa-flickr"></i></a>
+                    <a href=""><i className="fa fa-google-plus"></i></a>
                 </div>
             </footer>
-        </div>
-
-            <button onClick={this._onImageClick}>
-              next
-            </button>
-            <button onClick={this.handleClick}>
-              previous
-            </button>
         </div>
         </div>
       </div>
