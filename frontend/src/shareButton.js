@@ -24,14 +24,13 @@ export default class DownloadButton extends Component {
 
     return (
       <div class="media">
-        <img class="align-self-top mr-3" src="./images/share.svg" 
+        <img class="align-self-center mr-2" src="./images/share.svg" 
             alt="triangle with all three sides equal"
             height="40px"
             width="40px"
         />
         <div class="media-body">
-          <p class="text-left">Share you FCBayern Moment</p>
-          <p class="text-left">with the whole world</p>
+          <p class="font-italic text-left pt-4">Share your FCBayern Moment</p>  
         </div>
         
       </div>
