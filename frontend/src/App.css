@@ -15,7 +15,7 @@
 }
 
 .fh {
-    height:92.75vh;
+    height:75vh;
 }
 
 .col-6, .col-12 {
@@ -30,14 +30,38 @@
     position: fixed;  
 }
 
+.test {
+    height:92.75vh;
+}
+
 .exactCenter {
 		width:800px;
 		height:400px;
 		position: fixed;
-		top: 50%;
+		top: 37.5%;
 		left: 50%;
 		margin-top: -200px;
 		margin-left: -400px;
+}
+
+.leftSide {
+    width:400px;
+    height:400px;
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    margin-top: -200px;
+    margin-left: -200px;
+}
+
+.rightSide {
+    width:400px;
+    height:400px;
+    position: fixed;
+    top: 37.5%;
+    left: 75%;
+    margin-top: -200px;
+    margin-left: -200px;
 }
 
 .bayernLogo {  
