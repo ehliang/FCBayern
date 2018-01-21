@@ -1,0 +1,5 @@
+applications:
+- name: diesechs
+  command: npm start
+  instances: 1
+  memory: 1024M

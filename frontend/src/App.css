@@ -68,7 +68,8 @@
     padding: 50px;
 }
 
-.App .image-gallery-slide {
+#video_overlays.image-gallery-slide {
+    background: transparent;
 }
 
 .fa {

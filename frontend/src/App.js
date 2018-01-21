@@ -10,6 +10,8 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import Helmet from 'react-helmet';
 import ShareButton from './shareButton'
 import NavButton from './navButton'
+import DownloadButton from './downloadButton';
+
 
 const sources = {
   sintelTrailer: 'http://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -104,11 +106,11 @@ class Videoplayer extends Component {
         ref="player"
         autoPlay={true}
         fluid={true}
-        startTime={49}
       >
         <source src={sourcePath} />
         <ControlBar autoHide={true}>
           <FullscreenToggle disabled />
+          
         </ControlBar>
       </Player>
     )
@@ -165,13 +167,18 @@ class App extends Component {
       },
       {
         id: 2,
-        original: './images/logo.svg',
-        thumbnail: './images/logo.svg'
+        original: './images/miasanmia.png',
+        thumbnail: './images/miasanmia.png'
       },
       {
         id: 3,
         original: './images/sap-logo-svg.svg',
         thumbnail: './images/sap-logo-svg.svg'
+      },
+      {
+        id: 4,
+        original: './images/bundesliga.png',
+        thumbnail: './images/bundesliga.png'
       }
     ]
 
@@ -207,15 +214,15 @@ class App extends Component {
                       onClick={this._onImageClick.bind(this)}
                       additionalClass="app-image-gallery"/>
               </div>
-              <Videoplayer id="video_player"
-                path="http://media.w3.org/2010/05/sintel/trailer.mp4" />
+              <Videoplayer id="video_player1"
+                path="./images/Muller_Goal.mp4" />
             </div>
             </div>
           
 
           <div className="col-6 d-flex align-items-center">  
             <div id="video_box">
-              <Videoplayer id="video_player"
+              <Videoplayer id="video_player2"
                 path="http://media.w3.org/2010/05/bunny/movie.mp4" />
             </div>    
           </div>
@@ -254,6 +261,7 @@ class App extends Component {
 
           <div className="col-4">
           <h4>Share your FCBayern moment!</h4>
+          
           <footer className="footer">
                 <div className="container text-center">
                     <a href="#" onClick={this.activateLasers}><i className="fa fa-facebook"></i></a>
@@ -276,9 +284,6 @@ class App extends Component {
           
         </div>
 
-        <div className="col-12">
-          <ShareButton /> 
-        </div>
         
         <div className="col-12">
             
